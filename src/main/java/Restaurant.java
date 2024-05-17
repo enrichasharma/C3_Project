@@ -40,16 +40,6 @@ public class Restaurant {
         }
         return null;
     }
-    public int getTotalOrderCost(List<Item> items) {
-        int totalCost = 0;
-        for (Item item : items) {
-            String itemName = item.getName();
-            if(findItemByName(itemName) != null){
-                totalCost += item.getPrice();
-            }
-        }
-        return totalCost;
-    }
 
     public void addToMenu(String name, int price) {
         Item newItem = new Item(name,price);
