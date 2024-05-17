@@ -20,6 +20,10 @@ class RestaurantTest {
         restaurant.addToMenu("Vegetable lasagne", 269);
 
     }
+    @Test
+    public void displaying_details_of_restaurant_to_verify_it_contains_same_as_added_to_the_obj(){
+        restaurant.displayDetails();
+    }
     //>>>>>>>>>>>>>>>>>>>>>>>>>OPEN/CLOSED<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     //-------FOR THE 2 TESTS BELOW, YOU MAY USE THE CONCEPT OF MOCKING, IF YOU RUN INTO ANY TROUBLE
     @Test
@@ -65,24 +69,17 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 @Test
     public void total_cost_of_order_if_all_items_are_ordered (){
-        Restaurant restaurant = new Restaurant("Amelie's Cafe", "Chennai", LocalTime.of(10, 0), LocalTime.of(22, 0));
-
-        // Add items to the menu
-        restaurant.addToMenu("Sweet Corn Soup", 119);
-        restaurant.addToMenu("Vegetable Lasagne", 269);
-        restaurant.addToMenu("Sizzling Brownie", 319);
 
         // Create a list of items to be ordered
         ArrayList<Item> items = new ArrayList<>();
-        items.add(new Item("Sweet Corn Soup", 119));
-        items.add(new Item("Vegetable Lasagne", 269));
-        items.add(new Item("Sizzling Brownie", 319));
+        items.add(new Item("Sweet corn soup", 119));
+        items.add(new Item("Vegetable lasagne", 269));
 
         // Calculate the total order cost
         int totalCost = restaurant.getTotalOrderCost(items);
 
         // Verify that the total order cost matches the expected value
-        assertEquals(707, totalCost);
+        assertEquals(388, totalCost);
     }
 
     //<<<<<<<<<<<<<<<<<<<Total Order Value>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
