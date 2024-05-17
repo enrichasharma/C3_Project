@@ -64,26 +64,26 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 @Test
-public void total_cost_order_if_all_items_are_ordered (){
-    Restaurant restaurant = new Restaurant("Amelie's Cafe", "Chennai", LocalTime.of(10, 0), LocalTime.of(22, 0));
+    public void total_cost_order_if_all_items_are_ordered (){
+        Restaurant restaurant = new Restaurant("Amelie's Cafe", "Chennai", LocalTime.of(10, 0), LocalTime.of(22, 0));
 
-    // Adding items to the menu
-    restaurant.addToMenu("Sweet Corn Soup", 119);
-    restaurant.addToMenu("Vegetable Lasagne", 269);
+        // Add items to the menu
+        restaurant.addToMenu("Sweet Corn Soup", 119);
+        restaurant.addToMenu("Vegetable Lasagne", 269);
+        restaurant.addToMenu("Sizzling Brownie", 319);
 
+        // Create a list of items with only Sweet Corn Soup
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item("Sweet Corn Soup", 119));
+        items.add(new Item("Vegetable Lasagne", 269));// Assuming the price is 119
+        items.add(new Item("Sizzling Brownie", 319));
 
-    // adding items to the list
-    ArrayList<Item> items = new ArrayList<>();
-    items.add(new Item("Sweet Corn Soup", 119));
-    items.add(new Item("Vegetable Lasagne", 269));// Assuming the price is 119
+        // Calculate the total order cost
+        int totalCost = restaurant.getTotalOrderCost(items);
 
-
-    // Calculating the total order cost
-    int totalCost = restaurant.getTotalOrderCost(items);
-
-    // Verifing that the total order cost matches the expected value (119)
-    assertEquals(388, totalCost);
-}
+        // Verify that the total order cost matches the expected value (119)
+        assertEquals(707, totalCost);
+    }
 
     //<<<<<<<<<<<<<<<<<<<Total Order Value>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
